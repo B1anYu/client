@@ -454,7 +454,7 @@ namespace iidx::omnimix
 
 		void post_avs_init() override
 		{
-			avs2::fs_mount("/ac_mount", "E:\\LDJ-012-2023101800\\contents\\data", "fs", const_cast<char*>("vf=1,posix=1"));
+			avs2::fs_mount("/ac_mount", "D:\\LDJ-012-2024100900\\contents\\data", "fs", const_cast<char*>("vf=1,posix=1"));
 		}
 	};
 }

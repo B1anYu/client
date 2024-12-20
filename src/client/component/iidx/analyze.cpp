@@ -113,6 +113,7 @@ namespace iidx::analyze
 			last_tick = ev.tick;
 		}
 
+		if (total_tick == 0) return 0.0f;
 		return (result * 1000.f) / total_tick;
 	}
 
@@ -333,12 +334,13 @@ namespace iidx::analyze
 		result.bpm.min = 100000;
 		result.bpm.max = -100000;
 		result.note_count = 0;
+		result.total_seconds = 0.0f;
 
 		for (const auto& ev : chart)
 		{
 			if (ev.type == iidx::event_type_t::end_of_song)
 			{
-				result.total_seconds = ev.tick / 1000.f;
+				result.total_seconds = ev.tick > 0 ? (ev.tick / 1000.f) : 0.0f;
 				break;
 			}
 
